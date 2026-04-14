@@ -1,0 +1,84 @@
+\begin{exercice}
+$N$ et $n$ sont deux entiers à quatre chiffres chacun et la différence $N - n$ est un
+nombre à deux chiffres. Le nombre de doublets $(N, n)$ possibles est de~:
+\begin{enumerate}
+  \item $8901 \times 180$
+  \item $8900 \times 89$
+  \item $8945,5 \times 180$
+  \item $8945,5 \times 45$
+  \item $8945,5 \times 90$
+\end{enumerate}
+\end{exercice}
+%
+\begin{proof}
+Faisons varier $N$ tout en respectant ces deux contraintes. Les cas possibles sont les suivants:
+%
+\begin{align}
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    \underbrace{9999}_{N} - \underbrace{9989}_{n} & 10 \\
+    \multicolumn{2}{c}{\vdots} \\
+    9999 - \underbrace{9900}_{n} & 99
+  \end{array}
+  \right\} 90 \text{ égalités,}\\
+%
+%
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    9998 - 9988 & 10 \\
+    \multicolumn{2}{c}{\vdots} \\
+  9998 - 9899 & 99
+  \end{array}
+  \right\} 90 \text{ égalités,}\\
+%
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    1099 - 1089 & 10 \\
+    \multicolumn{2}{c}{\vdots} \\
+  1099 - 1000 & 99
+  \end{array}
+  \right\} 90 \text{ égalités,}\\
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    1098 - 1088 & 10 \\
+    \multicolumn{2}{c}{\vdots} \\
+  1098 - 1000 & 98
+  \end{array}
+  \right\} 89 \text{ égalités,}\\
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    1097 - 1087 & 10 \\
+    \multicolumn{2}{c}{\vdots} \\
+  1097 - 1000 & 97
+  \end{array}
+  \right\} 88 \text{ égalités,}\\
+%
+& \hspace{4.2em}\vdots\\\nonumber
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    1011 - 1001 & 10 \\
+   1011 - 1000 & 11  
+  \end{array}
+  \right\} 2 \text{ égalités,}\\
+%
+  &\left.
+  \begin{array}{r@{{}={}}l}
+    1010 - 1000 & 10 
+  \end{array}
+  \right\} 1 \text{ égalité. }
+\end{align}
+%
+Il suffit de compter toutes ces égalités. Il y en a
+%
+\begin{equation}
+\bigl((9999-1099) +1 \bigr) \times 90   (1+\cdot+89)  = \frac{89 \times 90}{2} + 8901 \times 90.
+\end{equation}
+En effet, %
+$1+\cdots+89=\frac{89 \times 90}{2}$ est l'application à $n=89$ de la formule $1+2+\cdot\cdot\cdot+n=\frac{n(n+1)}{2}$.
+Factoriser ce résultat par $90$ fait apparaître l'écriture en \textbf{E}.
+\end{proof}

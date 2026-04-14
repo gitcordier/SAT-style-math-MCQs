@@ -1,0 +1,45 @@
+\begin{exercice}
+Le chiffre des unités du produit des entiers pairs (exceptés $0, 10, 20,
+\ldots, 90$) compris entre $1$ et $99$ est:
+\begin{enumerate}
+  \item $0$
+  \item $2$
+  \item $4$
+  \item $6$
+  \item $8$
+\end{enumerate}
+\end{exercice}
+
+\begin{proof}En notant $P$ ce produit, il s'agit de résoudre $P\equiv r \mod 10$ avec $0\leq r < 10$ (voir exercice 1.1). 
+Partant de la définition de $P$, nous obtenons
+\begin{align}
+P &\Def  (2 \times 4 \times 6 \times 8) \times (12 \times 14 \times 16 \times 18)\times \cdots \times (92 \times 94 \times 96 \times 98) \\
+&\equiv (2 \times 4 \times 6 \times 8)^{10}\\
+&\equiv (8 \times 6 \times 8)^{10}\\
+&\equiv (48 \times 8)^{10}\\
+&\equiv (8 \times 8)^{10}\\
+&\equiv 64^{10}\\
+&\equiv 4^{10}\\
+&\equiv 16^{5}\\
+&\equiv 6^{5} \mod 10.
+\end{align}
+%
+Le problème est donc équivalent à la résolution de $r \equiv 6^{5}$ modulo $10$. En partant de $6^2 = 36 \equiv 6 \mod 10$, %
+nous obtenons, modulo $10$, 
+%
+\begin{align}
+  6^5 = (6^2)^2 \cdot 6 \equiv 6^2 \cdot 6 \equiv 6 \cdot 6 \equiv 6 \mod 10.
+  \end{align}
+%
+Réponse \text{D}. Alternativement, on peut utiliser 
+\begin{align}
+  6^3= 6 \cdot 6^2 \equiv 6 \cdot 6 \equiv 6^2 \equiv 6 \mod 10, 
+\end{align}
+%
+ce qui amène 
+%
+\begin{align}
+6^5 = 6^3 \cdot 6^2 \equiv 6 \cdot 6 \equiv 6 \mod 10.
+\end{align}
+%
+\end{proof}

@@ -1,0 +1,37 @@
+\begin{exercice}
+On considère le produit $P = 2 \times 3 \times 4 \times \cdots \times 99 \times 100$.
+La plus grande puissance de $2$ divisant $P$ est~:
+\begin{enumerate}
+  \item $2^{88}$
+  \item $2^{91}$
+  \item $2^{94}$
+  \item $2^{97}$
+  \item $2^{100}$
+\end{enumerate}
+\end{exercice}
+
+\begin{proof}
+Comptons les contributions de $2$ dans chaque terme, ce que présente le tableau suivant:
+\smallskip % Adds a small vertical space before the table
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|c|l|c|} % Changed to center-left-center for better balance
+  \hline
+  \textbf{Exactement $n$ fois} & \textbf{Termes} & \textbf{Sous-total} \\
+  \hline
+    $n = 6$ & $64$ & $6 \times 1 = 6$ \\
+    $n = 5$ & $32, 96$ & $5 \times 2 = 10$ \\
+    $n = 4$ & $16, 48, 80$ & $4 \times 3 = 12$ \\
+    $n = 3$ & $8, 24, 40, 56, 72, 88$ & $3 \times 6 = 18$ \\
+    $n = 2$ & $4, 12, \dots, 100$ & $2 \times 13 = 26$ \\
+    $n = 1$ & $2, 6, \dots, 98$ & $1 \times 25 = 25$ \\
+  \hline
+  \multicolumn{2}{|r|}{\textbf{Total}} & \textbf{97} \\
+  \hline
+  \end{tabular}
+\end{table}
+
+\noindent Réponse \textbf{D}.
+\end{proof}

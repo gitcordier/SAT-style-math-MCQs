@@ -1,0 +1,45 @@
+\begin{exercice}
+Le chiffre des unités pour l'écriture décimale  $3^{100}$ est~:
+\begin{enumerate}
+  \item $3$
+  \item $9$
+  \item $1$
+  \item $7$
+  \item $6$
+\end{enumerate}
+\end{exercice}
+
+\begin{proof} %[\textbf{C}]
+Rappelons que la division euclienne d'un entier positif $N$ par $10$ fournit les entiers $q$ (le quotient) et $r$ (le reste) %
+tels que: 
+%
+\begin{equation}
+  N = q \cdot 10  + r \qquad (0 \leq r < 10).
+\end{equation}
+%
+Rechercher le chiffre des unités revient donc à trouver le reste $r$. Pour ce faire, nous partons de 
+%
+\begin{equation}
+  3^{100} = (3^2)^{50} = 9^{50} =(9^2)^{25}.
+\end{equation}
+%
+Or 
+\begin{equation}
+  9^2 = 81 \equiv 1 \mod 10.
+\end{equation}
+%
+D'où
+%
+\begin{equation}
+  3^{100} = (9^2)^{25} \equiv 1^{25} \equiv 1 \mod 10.
+\end{equation}
+%
+Alternativement, on peut aussi noter que 
+%
+\begin{equation}
+  3^{100} = 9^{50} \equiv (\minus 1)^{50} \equiv 1 \mod 10. 
+\end{equation}
+%
+Réponse \textbf{C}.
+%
+\end{proof}

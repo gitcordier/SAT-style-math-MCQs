@@ -1,0 +1,277 @@
+% a4paper = ISO 216 standard. 
+% Don't forget to revert to default if you want the US Letter instead.
+\documentclass[a4paper,10pt,titlepage,openany,leqno]{book}
+
+% --------------------------- MATH PACKAGES ----------------------------
+%\usepackage{graphicx}
+\usepackage{xparse} 
+\usepackage{amsmath, amssymb} 
+\usepackage{
+amssymb, 
+amsfonts, 
+mathrsfs, 
+amsthm, 
+mathtools
+}
+
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+\usepackage{diagbox} % For diagonal cells
+
+\usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
+
+% --------------------------- FONT + UNICODE-MATH ----------------------------
+\usepackage{fontspec}
+
+% 1. OPTION ADDED HERE: [math-style=upright]
+% This forces Latin (x, y) and Greek letters to be upright by default.
+\usepackage[math-style=upright]{unicode-math} 
+
+% --------------------------- HYPERREF ----------------------------
+\usepackage{hyperref} 
+\hypersetup{
+    pdfborder = {0 0 0},
+    colorlinks,
+    citecolor=red,
+    filecolor=green,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+% --------------------------- TEXT FONTS ----------------------------
+\setmainfont[
+  ItalicFont=NewCM10-BookItalic.otf,
+  BoldFont=NewCM10-Bold.otf,       % There is no "Book Bold", we use standard Bold
+  BoldItalicFont=NewCM10-BoldItalic.otf
+]{NewCM10-Book.otf}
+
+\setsansfont[
+  ItalicFont=NewCMSans10-BookOblique.otf,
+  BoldFont=NewCMSans10-Bold.otf,
+  BoldItalicFont=NewCMSans10-BoldOblique.otf
+]{NewCMSans10-Book.otf}
+
+\setmonofont[
+  Scale=MatchLowercase, % Good practice to keep mono readable against serif
+  ItalicFont=NewCMMono10-BookItalic.otf,
+  BoldFont=NewCMMono10-Bold.otf,
+  BoldItalicFont=NewCMMono10-BoldOblique.otf
+]{NewCMMono10-Book.otf}
+
+% --------------------------- MATH FONTS ----------------------------
+\setmathfont{NewCMMath-Book.otf}
+
+
+%: TYPOGRAPHIC CONVENTIONS, XETEX
+\usepackage{polyglossia}
+%\selectbackgroundlanguage[variant=usmax]{english}
+%\setdefaultlanguage[variant=usmax]{english}
+\setdefaultlanguage{french}
+
+% --------------------------- PRIMITIVES ----------------------------
+\newcommand{\insmall}[1]{\text{\small{#1}}}
+%\newcommand{\minus}{\insmall{-}}
+% Use \AtBeginDocument to ensure unicode-math doesn't overwrite it
+
+\AtBeginDocument{
+  \renewcommand{\minus}{%
+    \mathbin{%
+      \mathchoice
+        {\scalebox{0.8}{$\text{\bf -}$}} % Display and Text style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Script style
+        {\scalebox{0.5}{$\text{\bf -}$}} % Script-script style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Default fallback
+    }%
+  }
+}
+
+% The field C and the usual subsets R, Q, Z, N.
+% NOTE: \mathbf produces bold italic in unicode-math, switch to \mathbb for standard notation
+\newcommand\usualSet[1]{\mathbf{#1}} 
+\def\R{\usualSet{R}}
+\def\Q{\usualSet{Q}}
+\def\Z{\usualSet{Z}}
+\def\N{\usualSet{N}}
+
+\newcommand{\C}[2]{\binom{#2}{#1}}   % C^{#1}_{#2}  (combinaisons)
+\newcommand{\A}[2]{A^{#1}_{#2}}      % arrangements
+
+\def\Def{\triangleq}
+\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
+
+\newcommand\counting[1]{#1=1, 2, 3, \dots} 
+\newcommand\naturals[1]{#1=0, 1, 2, \dots} 
+
+% Sets
+% % Braces
+\DeclarePairedDelimiter\singleton\{\}
+\newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
+
+% Standard calculus
+% % Intervals, as partial functions of the Interval command below.
+% % % Open.
+\NewDocumentCommand{\openInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{]}{[}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{]}{[}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{openInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Closed.
+\NewDocumentCommand{\closedInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{[}{]}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{[}{]}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{closedInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Open-closed ]...].
+\NewDocumentCommand{\openClosedInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{]}{]}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{]}{]}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{openClosedInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Closed-open [...[.
+\NewDocumentCommand{\closedOpenInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{[}{[}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{[}{[}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{closedOpenInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Interval, the primitive. 
+% % % Should not be called directly. 
+% % % Use open Interval, ..., closedOpenInterval; see above
+\NewDocumentCommand{\Interval}{s o m m m m}{%
+  \IfBooleanTF{#1}{% Auto-sizing
+    \left#5 \hspaceNorm #3, #4 \hspaceNorm  \right#6
+  }{% Else, manual sizing
+    \IfValueTF{#2}{% If [size] 
+      \mathopen{#2#5} \hspaceNorm  #3, #4 \hspaceNorm  \mathclose{#2#6}
+    }{% Else, error
+      \errmessage{Interval: Size argument is required.}
+    }
+  }
+}
+
+
+% % Norms
+\def\hspaceNorm{\hspace{0.12 em}}
+
+% % Alternative to \abs
+\NewDocumentCommand{\magnitude}{s o m}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{
+      \errmessage{magnitude: Star mode. Don't specify the [size].}
+    }{
+        \left\lvert \hspaceNorm #3 \hspaceNorm #1\right\rvert
+    }
+  % Non-star version: manual sizing
+  }{
+    \IfValueTF{#2}{% if [size] 
+        #2\lvert \hspaceNorm #3 \hspaceNorm #2\rvert
+    }{% elif no [size]
+      \errmessage{magnitude: Size command required.}
+    }
+  }
+}
+
+% Typesetting
+\newcommand{\varit}[1]{\mathit{#1}}
+
+% Currency
+\newcommand{\currency}{CHF}
+
+% --------------------------- THEOREM STYLE ----------------------------
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}[chapter]
+
+\theoremstyle{remark}
+\newtheorem*{reponse}{Réponse}
+
+
+% --------------------------- DOCUMENT INFO ----------------------------
+\def\ROOT{./}
+\def\TITLE{\textbf{Dossiers de mathématiques}\\[0.5em]%
+\large Arithmétique $\cdot$ Problèmes linéaires $\cdot$ %
+Probabilités $\cdot$ Géométrie $\cdot$ Analyse\\
+\vspace{1cm}
+{\raggedright SAT-style math MCQs I wrote when I was teaching. 
+I am publishing them, after review. 
+Each exercise comes with a Python program that computes the solution. 
+The current document and all Python sourcecodes are available on Github: 
+\href{https://github.com/gitcordier/SAT-style-math-MCQs}{gitcordier/SAT-style-math-MCQs}.\par
+}
+}
+
+\def\EMAIL{}
+\def\AUTHOR{Jean-Gabriel Cordier}
+
+
+\begin{document}
+\title{\TITLE}
+\author{\AUTHOR}
+\date{\today}
+\maketitle
+
+
+% FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
+\renewcommand{\labelenumi}{\Alph{enumi})}
+
+% FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
+%\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
+% IF LANG = @fr
+\renewcommand{\chaptername}{Chapitre}
+%
+% Changes the "proof" in proof environment. 
+% source: https://tex.stackexchange.com/questions/8089/changing-style-of-proof
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{{\rm \small RÉPONSE}}
+%
+\frontmatter
+\tableofcontents
+%\clearpage
+%\printglossary
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\roman{subsection}}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesection}{\arabic{section}}
+\mainmatter
+\input{\ROOT/mainmatter.tex} 
+
+\backmatter
+
+\end{document}
+% Made on \XeTeX
+% END
+% 

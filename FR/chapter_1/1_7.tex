@@ -1,0 +1,30 @@
+\begin{exercice}
+Ici, $111\dots 11$ désigne l'entier écrit (seulement) avec $N$ chiffres $1$.
+La somme $1 + 11 + 111 + \cdots + 111\dots 11$ vaut:
+\begin{enumerate}
+  \item $\frac{1}{9}\!\left(\frac{10^{N+1}-1}{9} - (N+1)\right)$
+  \item $\frac{1}{9}\!\left(\frac{10^{N+2}-1}{9} - (N+1)\right)$
+  \item $\frac{1}{9}\!\left(\frac{10^{N}-1}{9} - (N+1)\right)$
+  \item $\frac{1}{9}\!\left(\frac{10^{N}-1}{9} - N\right)$
+  \item $\frac{10^{N+1}-(N+1)}{81}$
+\end{enumerate}
+\end{exercice}
+
+\begin{proof}
+Pour établir la somme $S(N) = 1 + 11 + 111 + \cdots + 111\dots 11$\;\,($\naturals{N}$), notons que  
+%
+\begin{align}
+  9 \cdot S(N) & = 9 + 99 + \cdots + \overbrace{9 \dots 9}^{N \text{ `$9$'}} \\
+  & = (10-1) + (10^2 - 1) + \cdots + (10^N - 1) \\
+  & = (10 + 10^2 + \cdots + 10^N) - N \\
+  & = (1 + 10 + 10^2 + \cdots + 10^N) - (N + 1)
+\end{align}
+%
+L'application à $q=10$ de la formule $q^{N+1} - 1  = (q-1)(1 + \cdots + q^N)$ donne 
+% 
+\begin{equation}
+  9 \cdot S(N) = \frac{10^{N+1} - 1}{9} - (N+1).
+\end{equation}
+%
+Diviser cette expression de part et d'autre par $9$ renvoie la somme $S(N)$ demandée: réponse \textbf{A}.
+\end{proof}

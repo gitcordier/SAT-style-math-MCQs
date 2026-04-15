@@ -1,0 +1,19 @@
+\begin{exercice}
+Soit $N = 10 \times 10^2 \times 10^3 \times \cdots \times 10^{100}$.
+Quelle est sa décomposition en facteurs premiers~?
+\begin{enumerate}
+  \item $10^{5050}$
+  \item $2^{50} \times 5^{50}$
+  \item $2^{100} \times 5^{100}$
+  \item $2^{10100} \times 5^{10100}$
+  \item $2^{5050} \times 5^{5050}$
+\end{enumerate}
+\end{exercice}
+
+\begin{proof}[\textbf{E}]
+On a
+\begin{equation}
+  N = (2 \times 5)^{1+2+\cdots+100} = 2^{5050} \times 5^{5050},
+\end{equation}
+car $1 + 2 + \cdots + 100 = \dfrac{100 \times 101}{2} = 5050$.
+\end{proof}

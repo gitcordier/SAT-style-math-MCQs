@@ -10,20 +10,21 @@ Le chiffre des unités pour l'écriture décimale  $3^{100}$ est~:
 \end{exercice}
 
 \begin{proof} %[\textbf{C}]
-Rappelons que la division euclienne d'un entier positif $N$ par $10$ fournit les entiers $q$ (le quotient) et $r$ (le reste) %
-tels que: 
+Rappelons que la division euclienne d'un entier positif $N$ par $10$ retourne $\mathtt{N\,\% \, 10}$, l'entier naturel $< 10$ % 
+qui satisfait 
 %
 \begin{equation}
-  N = q \cdot 10  + r \qquad (0 \leq r < 10).
+  \mathtt{N = (N \, //\, 10 ) \ast 10  +(N \, \% \, 10)}.
 \end{equation}
 %
-Rechercher le chiffre des unités revient donc à trouver le reste $r$. Pour ce faire, nous partons de 
+Rechercher le chiffre des unités revient donc à trouver le \textit{reste} $\mathtt{N\,\% \, 10}$. Pour ce faire, %
+partons de 
 %
 \begin{equation}
-  3^{100} = (3^2)^{50} = 9^{50} =(9^2)^{25}.
+  3^{100} = (3^2)^{50} = 9^{50} =(9^2)^{25}
 \end{equation}
 %
-Or 
+puis remarquons que 
 \begin{equation}
   9^2 = 81 \equiv 1 \mod 10.
 \end{equation}

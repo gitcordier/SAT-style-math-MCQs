@@ -10,36 +10,46 @@ Le chiffre des unités du produit des entiers pairs (exceptés $0, 10, 20,
 \end{enumerate}
 \end{exercice}
 
-\begin{proof}En notant $P$ ce produit, il s'agit de résoudre $P\equiv r \mod 10$ avec $0\leq r < 10$ (voir exercice 1.1). 
-Partant de la définition de $P$, nous obtenons
+\begin{proof}En notant $P$ ce produit, il s'agit de trouver $P \, \% \, 10$; voir [1.1]. Partant de %
+la définition de $P$, nous obtenons
+%
 \begin{align}
-P &\Def  (2 \times 4 \times 6 \times 8) \times (12 \times 14 \times 16 \times 18)\times \cdots \times (92 \times 94 \times 96 \times 98) \\
-&\equiv (2 \times 4 \times 6 \times 8)^{10}\\
-&\equiv (8 \times 6 \times 8)^{10}\\
-&\equiv (48 \times 8)^{10}\\
-&\equiv (8 \times 8)^{10}\\
+P & =   (2 \times 4 \times 6 \times 8) \times (12 \times 14 \times 16 \times 18)\times \cdots \times %
+(92 \times 94 \times 96 \times 98) \\
+&\equiv (2 \times 4 \times 6 \times 8)^{10} \mod 10
+\end{align}
+%
+Il en découle les congruences modulo $10$ suivantes:
+\begin{align}
+P &\equiv 48^{10} \times 8^{10}\\
+&\equiv 8^{10} \times 8^{10}\\
 &\equiv 64^{10}\\
 &\equiv 4^{10}\\
 &\equiv 16^{5}\\
 &\equiv 6^{5} \mod 10.
 \end{align}
 %
-Le problème est donc équivalent à la résolution de $r \equiv 6^{5}$ modulo $10$. En partant de $6^2 = 36 \equiv 6 \mod 10$, %
-nous obtenons, modulo $10$, 
+Le problème est donc équivalent à la résolution de 
 %
-\begin{align}
+\begin{equation}
+r \equiv 6^{5} \mod 10 \qquad (0 \leq r < 10).
+\end{equation}
+%
+En partant de $6^2 = 36 \equiv 6 \mod 10$, nous obtenons, modulo $10$, 
+%
+\begin{equation}
   6^5 = (6^2)^2 \cdot 6 \equiv 6^2 \cdot 6 \equiv 6 \cdot 6 \equiv 6 \mod 10.
-  \end{align}
+  \end{equation}
 %
 Réponse \text{D}. Alternativement, on peut utiliser 
-\begin{align}
+\begin{equation}
   6^3= 6 \cdot 6^2 \equiv 6 \cdot 6 \equiv 6^2 \equiv 6 \mod 10, 
-\end{align}
+\end{equation}
 %
 ce qui amène 
 %
-\begin{align}
+\begin{equation}
 6^5 = 6^3 \cdot 6^2 \equiv 6 \cdot 6 \equiv 6 \mod 10.
-\end{align}
+\end{equation}
 %
 \end{proof}

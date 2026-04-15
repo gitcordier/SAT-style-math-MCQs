@@ -11,24 +11,25 @@ La plus grande puissance de $2$ divisant $P$ est~:
 \end{exercice}
 
 \begin{proof}
-Comptons les contributions de $2$ dans chaque terme, ce que présente le tableau suivant:
+Même raisonnement qu'en [\ref{1.5}] mais avec le nombre premier $2$ cette fois. 
+Ainsi, nous évaluons la contribution de $2$ dans chaque terme $2, 4, 6 \dots$ de $P$. Ce que récapitule le tableau suivant:
 \smallskip % Adds a small vertical space before the table
 
 \begin{table}[H]
   \centering
   \renewcommand{\arraystretch}{1.5}
-  \begin{tabular}{|c|l|c|} % Changed to center-left-center for better balance
+  \begin{tabular}{|c|l|c|c|} % Changed to center-left-center for better balance
   \hline
-  \textbf{Exactement $n$ fois} & \textbf{Termes} & \textbf{Sous-total} \\
+  \textbf{Exactement $n$ fois} & \textbf{Termes en $2^n \cdot (2k+1)$} & \textbf{Valeurs de $k$} & \textbf{Sous-total} \\
   \hline
-    $n = 6$ & $64$ & $6 \times 1 = 6$ \\
-    $n = 5$ & $32, 96$ & $5 \times 2 = 10$ \\
-    $n = 4$ & $16, 48, 80$ & $4 \times 3 = 12$ \\
-    $n = 3$ & $8, 24, 40, 56, 72, 88$ & $3 \times 6 = 18$ \\
-    $n = 2$ & $4, 12, \dots, 100$ & $2 \times 13 = 26$ \\
-    $n = 1$ & $2, 6, \dots, 98$ & $1 \times 25 = 25$ \\
+    $n = 6$ & $64$ & $\{0\}$ & $6 \times 1 = 6$ \\
+    $n = 5$ & $32, 96$ & $\{0, 1\}$ & $5 \times 2 = 10$ \\
+    $n = 4$ & $16, 48, 80$ & $\{0, 1, 2\}$ & $4 \times 3 = 12$ \\
+    $n = 3$ & $8, 24, 40, 56, 72, 88$ & $\{0, 1, \dots, 5\}$ & $3 \times 6 = 18$ \\
+    $n = 2$ & $4, 12, 20, 28, 36, \dots, 100$ & $\{0, 1, \dots, 12\}$ & $2 \times 13 = 26$ \\
+    $n = 1$ & $2, 6, 10, 14,  20, 24, \dots, 98$ & $\{0, 1, \dots, 14\}$ & $1 \times 25 = 25$ \\
   \hline
-  \multicolumn{2}{|r|}{\textbf{Total}} & \textbf{97} \\
+  \multicolumn{3}{|r|}{\textbf{Total}} & \textbf{97}  \\
   \hline
   \end{tabular}
 \end{table}

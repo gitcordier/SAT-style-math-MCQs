@@ -3,17 +3,16 @@
 \documentclass[a4paper,10pt,titlepage,openany,leqno]{book}
 
 % --------------------------- MATH PACKAGES ----------------------------
-%\usepackage{graphicx}
+\usepackage{graphicx}
 \usepackage{xparse} 
 \usepackage{amsmath, amssymb} 
-\usepackage{
-amssymb, 
+\usepackage{ 
 amsfonts, 
 mathrsfs, 
 amsthm, 
 mathtools
 }
-
+\usepackage{nicematrix}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{caption}
@@ -24,7 +23,8 @@ mathtools
 
 % --------------------------- FONT + UNICODE-MATH ----------------------------
 \usepackage{fontspec}
-
+\usepackage[dvipsnames]{xcolor}
+\colorlet{WHITE}{white} % ???
 % 1. OPTION ADDED HERE: [math-style=upright]
 % This forces Latin (x, y) and Greek letters to be upright by default.
 \usepackage[math-style=upright]{unicode-math} 
@@ -79,13 +79,17 @@ mathtools
   \renewcommand{\minus}{%
     \mathbin{%
       \mathchoice
-        {\scalebox{0.8}{$\text{\bf -}$}} % Display and Text style
-        {\scalebox{0.8}{$\text{\bf -}$}} % Script style
-        {\scalebox{0.5}{$\text{\bf -}$}} % Script-script style
-        {\scalebox{0.8}{$\text{\bf -}$}} % Default fallback
+        {\scalebox{0.8}{$\text{\textbf{-}}$}} % Display and Text style
+        {\scalebox{0.8}{$\text{\textbf{-}}$}} % Script style
+        {\scalebox{0.5}{$\text{\textbf{-}}$}} % Script-script style
+        {\scalebox{0.8}{$\text{\textbf{-}}$}} % Default fallback
     }%
   }
 }
+% Sets
+% % Braces
+\DeclarePairedDelimiter\singleton\{\}
+\newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
 
 % The field C and the usual subsets R, Q, Z, N.
 % NOTE: \mathbf produces bold italic in unicode-math, switch to \mathbb for standard notation
@@ -95,19 +99,23 @@ mathtools
 \def\Z{\usualSet{Z}}
 \def\N{\usualSet{N}}
 
-\newcommand{\C}[2]{\binom{#2}{#1}}   % C^{#1}_{#2}  (combinaisons)
-\newcommand{\A}[2]{A^{#1}_{#2}}      % arrangements
-
-\def\Def{\triangleq}
-\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
 
 \newcommand\counting[1]{#1=1, 2, 3, \dots} 
 \newcommand\naturals[1]{#1=0, 1, 2, \dots} 
 
-% Sets
-% % Braces
-\DeclarePairedDelimiter\singleton\{\}
-\newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
+\def\Def{\triangleq}
+\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
+
+\def\then{\Rightarrow} 
+\def\therefore{\Rightarrow}
+\def\implies{\Rightarrow}
+\def\since{\Leftarrow}
+\def\because{\Leftarrow} 
+\renewcommand{\iff}{\Leftrightarrow} 
+
+% Combinatorics
+\newcommand{\C}[2]{\binom{#2}{#1}}   % C^{#1}_{#2}  (combinaisons)
+\newcommand{\A}[2]{A^{#1}_{#2}}      % arrangements
 
 % Standard calculus
 % % Intervals, as partial functions of the Interval command below.
@@ -193,7 +201,7 @@ mathtools
     \IfValueTF{#2}{
       \errmessage{magnitude: Star mode. Don't specify the [size].}
     }{
-        \left\lvert \hspaceNorm #3 \hspaceNorm #1\right\rvert
+        \left\lvert \hspaceNorm #3 \hspaceNorm \right\rvert
     }
   % Non-star version: manual sizing
   }{
@@ -263,10 +271,11 @@ The current document and all Python sourcecodes are available on Github:
 %\printglossary
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\roman{subsection}}
-
-\renewcommand{\thesubsection}{\arabic{subsection}}
-\renewcommand{\thesection}{\arabic{section}}
+ 
+\renewcommand{\thesection}{Exercice \arabic{section}} 
 \mainmatter
+
+
 \input{\ROOT/mainmatter.tex} 
 
 \backmatter

@@ -2,7 +2,7 @@
 
 SAT-style math MCQs I wrote when I was teaching.
 
-I am publishing them, after review. Each exercise comes with a relevant Python program that computes the solution.
+I am publishing them, after review. Each Exercice comes with a relevant Python program that computes the solution.
 
 # # Chapter 1:
 
@@ -12,9 +12,9 @@ I am publishing them, after review. Each exercise comes with a relevant Python p
 1.4: Binary expansion
 1.5: Arithmetic (Euclid lemma)
 1.6: Arithmetic (Euclid lemma)
-1.7:
-1.8:
-1.9:
+1.7: Geometric sequence
+1.8: Gaussian elimination
+1.9: Gaussian elimination
 1.10:
 1.11:
 1.12:

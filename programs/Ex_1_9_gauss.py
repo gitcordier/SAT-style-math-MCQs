@@ -1,5 +1,5 @@
 """
-PA_gauss.py
+Ex_1_0_gauss.py
 ===========
 
 Algebraic solver for a linear system using **Gaussian elimination

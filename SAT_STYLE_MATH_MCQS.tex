@@ -86,6 +86,15 @@ mathtools
     }%
   }
 }
+
+% Logic
+\def\then{\Rightarrow} 
+\def\therefore{\Rightarrow}
+\def\implies{\Rightarrow}
+\def\since{\Leftarrow}
+\def\because{\Leftarrow} 
+\renewcommand{\iff}{\Leftrightarrow}
+
 % Sets
 % % Braces
 \DeclarePairedDelimiter\singleton\{\}
@@ -99,25 +108,22 @@ mathtools
 \def\Z{\usualSet{Z}}
 \def\N{\usualSet{N}}
 
+\DeclareMathOperator\sgn{sgn} 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 
 \newcommand\counting[1]{#1=1, 2, 3, \dots} 
 \newcommand\naturals[1]{#1=0, 1, 2, \dots} 
 
 \def\Def{\triangleq}
-\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
-
-\def\then{\Rightarrow} 
-\def\therefore{\Rightarrow}
-\def\implies{\Rightarrow}
-\def\since{\Leftarrow}
-\def\because{\Leftarrow} 
-\renewcommand{\iff}{\Leftrightarrow} 
+\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff 
 
 % Combinatorics
 \newcommand{\C}[2]{\binom{#2}{#1}}   % C^{#1}_{#2}  (combinaisons)
 \newcommand{\A}[2]{A^{#1}_{#2}}      % arrangements
 
 % Standard calculus
+% functions
+\DeclareMathOperator\mean{mean}
 % % Intervals, as partial functions of the Interval command below.
 % % % Open.
 \NewDocumentCommand{\openInterval}{s o m m}{%

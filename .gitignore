@@ -290,7 +290,7 @@ TSWLatexianTemp*
 .texpadtmp
 
 # LyX
-*.lyx~
+*.lyx
 
 # Kile
 *.backup
@@ -299,7 +299,7 @@ TSWLatexianTemp*
 .*.swp
 
 # KBibTeX
-*~[0-9]*
+*[0-9]*
 
 # TeXnicCenter
 *.tps

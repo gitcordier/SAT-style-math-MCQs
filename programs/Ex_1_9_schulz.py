@@ -1,5 +1,5 @@
 """
-PN_schulz.py
+Ex_1_0_schulz.py
 ============
 
 Numerical solver based on **Schulz's iterative matrix inversion**
@@ -67,18 +67,18 @@ References
 ----------
 .. [Schulz1933]
    G. Schulz, "Iterative Berechnung der reziproken Matrix,"
-   *Zeitschrift für Angewandte Mathematik und Mechanik*, **13** (1), 57–59, 1933.
+   *Zeitschrift für Angewandte Mathematik und Mechanik*, **13** (1), 57-59, 1933.
    https://doi.org/10.1002/zamm.19330130111
 
 .. [Hotelling1943]
    H. Hotelling, "Some new methods in matrix calculation,"
-   *Annals of Mathematical Statistics*, **14** (1), 1–34, 1943.
+   *Annals of Mathematical Statistics*, **14** (1), 1-34, 1943.
    https://doi.org/10.1214/aoms/1177731489
 
 .. [BenIsrael1966]
    A. Ben-Israel & D. Cohen, "On iterative computation of generalized
    inverses and associated projections,"
-   *SIAM Journal on Numerical Analysis*, **3** (3), 410–419, 1966.
+   *SIAM Journal on Numerical Analysis*, **3** (3), 410-419, 1966.
    https://doi.org/10.1137/0703035
 
 .. [Higham2008]
@@ -101,7 +101,7 @@ Usage::
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §0 – Hyper-parameters
+# §0 - Hyper-parameters
 # ═══════════════════════════════════════════════════════════════════════════
 
 TOLERANCE = 1e-12   #: convergence threshold on  ‖I − A Xₖ‖_F
@@ -109,7 +109,7 @@ MAX_ITER  = 60      #: safety cap on Schulz iterations
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §1 – Scalar sqrt without math import
+# §1 - Scalar sqrt without math import
 # ═══════════════════════════════════════════════════════════════════════════
 
 def scalar_sqrt(s, n_iter=80):
@@ -139,7 +139,7 @@ def scalar_sqrt(s, n_iter=80):
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §2 – Matrix primitives  (all implemented from scratch)
+# §2 - Matrix primitives  (all implemented from scratch)
 # ═══════════════════════════════════════════════════════════════════════════
 
 def identity(n):
@@ -259,7 +259,7 @@ def mat_mul(A, B):
 
 def mat_vec(A, v):
     """
-    Matrix–vector product :math:`A \\mathbf{v}`.
+    Matrix-vector product :math:`A \\mathbf{v}`.
 
     :param A: matrix (n × m)
     :type  A: list[list[float]]
@@ -325,7 +325,7 @@ def print_matrix(M, label="", indent=4):
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §3 – Schulz iteration  (the heart of the program)
+# §3 - Schulz iteration  (the heart of the program)
 # ═══════════════════════════════════════════════════════════════════════════
 
 def schulz_init(A):
@@ -437,7 +437,7 @@ def schulz_iterate(A, tol=TOLERANCE, max_iter=MAX_ITER):
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §4 – Verification helpers
+# §4 - Verification helpers
 # ═══════════════════════════════════════════════════════════════════════════
 
 def verify_columns(A, Ainv, var_names):
@@ -523,13 +523,13 @@ def verify_solution(A, x, b, eq_labels, unknowns):
             all_ok = False
     print()
     if all_ok:
-        print("    All equations satisfied – solution is VERIFIED. ✓")
+        print("    All equations satisfied - solution is VERIFIED. ✓")
     else:
         print("    WARNING: solution does NOT fully satisfy the system.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
-# §5 – Main driver
+# §5 - Main driver
 # ═══════════════════════════════════════════════════════════════════════════
 
 def solve_via_schulz_inversion(A, b, col_names, var_names, eq_labels):
@@ -564,7 +564,7 @@ def solve_via_schulz_inversion(A, b, col_names, var_names, eq_labels):
 
     # ── Banner ─────────────────────────────────────────────────────
     print(sep)
-    print("  PN – Schulz Iterative Matrix Inversion  [Schulz 1933]")
+    print("  PN - Schulz Iterative Matrix Inversion  [Schulz 1933]")
     print(sep)
     print("""
   Idea: scalar Newton for 1/a is  x_{k+1} = x_k (2 − a x_k).

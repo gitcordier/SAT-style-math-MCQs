@@ -1,16 +1,59 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% SAT_STYLE_MATH_MCQS.tex
+% 1_10.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
 %
-Considérons deux réels $a, b$ ($a < b$) dont le produit vaut $55$. Sachant que
-leur somme vaut $16$, que vaut le doublet $(a, b)$~?
-\begin{enumerate}
-  \item $(3,13)$
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Considérons deux entiers $a$ et $b$ dont le produit vaut $55$. Sachant que $a-b = \minus 6$, que vaut le doublet $(a, b)$?
+%
+\begin{enumerate} 
+  \item $(1,55)$
   \item $(11,5)$
-  \item $(7,9)$
-  \item $(5,11)$
-  \item Il y a deux solutions.
+  \item $(\minus 11,5)$
+  \item $(11, \minus 5)$
+  \item $(\minus 11,\minus 5)$
+  \item $(\minus 5,\minus 11)$
+  \item Autre réponse
 \end{enumerate}
+% 
+\begin{proof}%
+Deux approches - arithmétique et algébrique - sont valables. La première consiste en une étude de cas, la seconde ramène le %
+problème à la recherche de racines d'un polynôme particulier. 
 %
+\paragraph{Approche arithmétique.} Notons que $m= \min\bigl\{\abs{a}, \abs{b}\bigr\} > 1$ (en effet, $m = 0 \implies ab=0$, %
+et $m = 1 \implies \abs{a - b} = 54$). La décomposition de $55$ en facteurs premiers est $(5, 11)$. %
+Les arrangements possibles pour $\magnitude*{a}$ et $\magnitude*{b}$ sont donc soit $(5, 11)$, soit $(11, 5)$. %
+Comme $\sgn(a) = sgn(b)$ (car $ab > 0$) et que $a - b < 0$, les options restantes sont:
 %
-\begin{proof}[\textbf{D}]
-La seule décomposition non triviale de $55$ en produit de deux entiers est
-$5 \times 11$. Comme $5 + 11 = 16$ et $a < b$, on a $(a, b) = (5, 11)$.
+\begin{itemize}[label=$\circ$]
+  \item $(a, b) = (5, 11)$ \qquad (convient, car $5-11 = \minus 6$),
+  \item $(a, b) = (\minus 11, \minus 5)$ \qquad (convient, car $\minus 11 - (\minus 5) = \minus 6$).
+\end{itemize} 
+%
+Le problème a donc deux solutions: réponse \textbf{G}.
+%
+\paragraph{Approche algébrique} Recherchons $a$ et $\minus b$ vérifiant
+%
+\begin{equation}
+  \begin{cases}
+    a \cdot (\minus b) = \minus 55 \\
+    a + (\minus b) = \minus 6.
+  \end{cases}
+\end{equation}
+De façon équivalente, $\{a, \minus b\}$ forme l'ensemble des racines de $P(X) = X^2 + 6 X - 55$. Le discriminant de $P(X)$ est 
+%
+\begin{align}
+  \Delta &= 6^2 - 4 \cdot 1 \cdot (\minus 55) &&\\
+  &= 36 + 220  && \\
+  &= 256  && \\
+  &= 16^2    &[\text{exactement deux racines}]
+\end{align}
+%
+Les couples $(a, b)$ possibles sont donc $(\minus 11, \minus 5)$ et $(5, 11)$. Réponse \textbf{G}.
 \end{proof}
+%

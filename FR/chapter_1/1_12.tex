@@ -1,15 +1,27 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% SAT_STYLE_MATH_MCQS.tex
+% 1_12.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
 %
-Considérons trois entiers consécutifs $a, b, c$ dont le produit vaut $210$ et
-leur moyenne $6$. Combien vaut $b$~?
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Considérons trois entiers consécutifs $a, b, c$ dont le produit vaut $210$, et la moyenne $6$. Combien vaut $b$?
+%
 \begin{enumerate}
-  \item $18$
-  \item $17$
-  \item $7$
+  \item $5$
+  \item $35$
   \item $16$
   \item $6$
+  \item Aucune des propositions ci-dessus: il y a plusieurs réponses possibles.
+  \item Aucune des propositions ci-dessus: le problème est mal posé.
 \end{enumerate}
 %
-%
-\begin{proof}[\textbf{E}]
-En notant les trois entiers $b-1, b, b+1$, leur moyenne est $b = 6$.
+\begin{proof}
+On a $(a, b, c) = (b-1, b, b+1)$ (ou, dans l'ordre décroissant, $(a, b, c) = (b+1, b, b-1)$). Donc %
+$\mean(a, b, c) = b = 6$. Ainsi, $(a, b, c) = (5, 6, 7)$ (ou, dans l'ordre décroissant, $(a, b, c) = (7, 6, 5)$). %
+Il faut alors vérifier que $a\cdot b \cdot c= 5\cdot 6 \cdot 7= 210$. Réponse \textbf{D}.
 \end{proof}

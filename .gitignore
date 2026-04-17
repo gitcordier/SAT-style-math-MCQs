@@ -327,4 +327,4 @@ TSWLatexianTemp*
 
 # Misc
 *.DS_Store
-all.tex
+*all.tex

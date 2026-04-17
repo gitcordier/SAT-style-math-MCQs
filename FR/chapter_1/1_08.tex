@@ -1,0 +1,58 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% SAT_STYLE_MATH_MCQS.tex
+% 1_08.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\label{1.8}%
+Considérons trois nombres $a, b, c$ dont la somme vaut $60$. Sachant que $c$ est la moyenne des deux autres et que %
+$c - a = 1$, que vaut le triplet $(a, b, c)$?
+\begin{enumerate}
+  \item $(19,20,21)$
+  \item $(19,21,20)$
+  \item $(20,20,21)$
+  \item $(21,20,19)$
+  \item $(21,19,20)$
+\end{enumerate}
+%
+\begin{proof}
+%
+\begin{equation}
+  \begin{cases}
+    \frac{a+b}{2} &= c \\
+    c - a &= 1 \\
+    a + b + c &= 60
+  \end{cases}
+\end{equation}
+%
+Combinons les première et dernière lignes pour faire apparaître $a+b$, comme suit:
+%
+\begin{equation*}
+  a + b + c = a + b + \frac{a+b}{2} =  \frac{3}{2}(a+b) = 60 \quad \then \quad \boxed{a+b = 40} \,.
+\end{equation*}
+%
+Nous pouvons maintenant obtenir $c$:
+%
+\begin{equation*}
+  \boxed{c} = a + b + c - (a + b) = 60 - 40 = \boxed{20} \,.
+\end{equation*}
+%
+Cela permet de calculer $a$. En effet, 
+%
+\begin{equation*}
+  \boxed{a} = c - (c-a) = 20 - 1 = \boxed{19} \,. 
+\end{equation*}
+%
+Finalement,
+%
+\begin{equation*}
+  \boxed{b} = (a + b + c) - a - c  = 60 - 19 - 20 = \boxed{21} \,.
+\end{equation*}
+%
+Réponse \textbf{B}.
+\end{proof}

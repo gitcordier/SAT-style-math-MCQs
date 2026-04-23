@@ -20,14 +20,14 @@ Le chiffre des unités pour l'écriture décimale  $3^{100}$ est:
 \end{enumerate}
 %
 \begin{proof} %[\textbf{C}]
-Rappelons que la division euclienne d'un entier positif $N$ par $10$ retourne $\mathtt{N\,\% \, 10}$, l'entier naturel $< 10$ % 
+Rappelons que la division euclienne d'un entier positif $N$ par $10$ retourne $\texttt{N \% 10}$, l'entier naturel $< 10$ % 
 qui satisfait 
 %
 \begin{equation}
-  \mathtt{N = (N \, //\, 10 ) \ast 10  +(N \, \% \, 10)}.
+  \text{\texttt{N = (N // 10) * 10 +(N \% 10)}}.
 \end{equation}
 %
-Rechercher le chiffre des unités revient donc à trouver le \textit{reste} $\mathtt{N\,\% \, 10}$. Pour ce faire, %
+Rechercher le chiffre des unités revient donc à trouver le \textit{reste} $\texttt{N \% 10}$. Pour ce faire, %
 partons de 
 %
 \begin{equation}
@@ -36,19 +36,19 @@ partons de
 %
 puis remarquons que 
 \begin{equation}
-  9^2 = 81 \equiv 1 \mod 10.
+  9^2 = 81 \equiv 1 \pmod{10}.
 \end{equation}
 %
 D'où
 %
 \begin{equation}
-  3^{100} = (9^2)^{25} \equiv 1^{25} \equiv 1 \mod 10.
+  3^{100} = (9^2)^{25} \equiv 1^{25} \equiv 1 \pmod{10}.
 \end{equation}
 %
 Alternativement, on peut aussi noter que 
 %
 \begin{equation}
-  3^{100} = 9^{50} \equiv (\minus 1)^{50} \equiv 1 \mod 10. 
+  3^{100} = 9^{50} \equiv (\minus 1)^{50} \equiv 1 \pmod{10}. 
 \end{equation}
 %
 Réponse \textbf{C}.

@@ -1,0 +1,128 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% SAT_STYLE_MATH_MCQS_FR.tex
+% 1_04_fr.tex
+%
+% encoding: UTF-8
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+La numération en base heptadécimale permet d'écrire les entiers avec les dix chiffres usuels et sept lettres supplémentaires %
+\texttt{A}, \dots, \texttt{G}: \texttt{A} représente $10$, \texttt{B} représente $11$, \dots, \texttt{G} représente $16$, %
+\texttt{10} représente $17$, \texttt{1G} représente $33$, et ainsi de suite. \\
+\\
+\noindent%
+Nous nous intéressons ici à l'entier 
+%
+\begin{equation}
+  1729 = 1^3 + 12^3 = 9^3 + 10^3,
+\end{equation} 
+%
+connu sous le nom de \emph{nombre de Hardy--Ramanujan}, ou \emph{taxicab number}. C'est le plus petit entier pouvant s'exprimer 
+comme somme $a^3 + b^3$\;\,($0 <a^3 <b^3$) de deux manières différentes. La question est: comment s'écrit%
+%
+\begin{equation*}
+    \Biggl(\Bigl(\bigl(1729^{1729} \bmod{17}\bigr)^{1729} \Bigr)^{1729} \bmod{17}\Biggr)^{\mathbf{\dots}} 
+\end{equation*}
+%
+dans le système heptadécimal?
+%
+\begin{enumerate}
+  \item $1$
+  \item $8$
+  \item $B$
+  \item $C$
+  \item $G$
+\end{enumerate}
+%
+\begin{proof}
+En notant $X$ ce nombre, nous avons d'après l'énoncé
+%
+\begin{equation}
+    X^{1729} \equiv X \pmod{17}.
+  \end{equation}
+%
+$X=1$ peut passer pour une réponse évidente mais ce n'est pas la bonne! Comme 
+%
+\begin{equation}
+  1729 \equiv 12 \pmod{17}
+\end{equation}
+%
+(car $1729=101\times 17+12$), on a %
+%
+\begin{equation}
+  1729^{1729} \equiv 12^{1729} \pmod{17}.
+\end{equation}
+%
+Nous démontrons de quatre façons différentes (deux sont en annexe) que 
+%
+\begin{equation}
+  12^{1729}\equiv 12 \pmod{17}.
+\end{equation}
+%
+et donc que 
+%
+\begin{align}
+    \bigl(12^{1729}\bigr)^{1729} &\equiv 12^{1729} \equiv 12 \pmod{17}, \\
+    \Bigl(\bigl(1729^{1729}\bigr)^{1729}\Bigr)^{1729} &\equiv  \bigl(12^{1729}\bigr)^{1729} \equiv 12 \pmod{17},
+    %&\hspace{0.25em} \vdots\nonumber
+\end{align}
+%
+et ainsi de suite. Comme $0 \leq 12 <17$, $12$ est le reste recherché. Dans le système heptadécimal, il s'écrit $C$. Réponse %
+\textbf{C}.\\
+\\
+Notre première preuve mobilise le Petit Théorème de Fermat, la deuxième son équivalent algorithmique qu'est l'exponentiation %
+rapide. Sans l'un de ces outils, résoudre les congruences est beaucoup plus difficile et dépend de cas particuliers. %
+Les deux autres preuves, ajoutées en annexe, servent de prétexte à un passage en revue des autres concepts et méthodes %
+importants en arithmétique modulaire. Par contraste, leur difficulté met en valeur la force du Petit Théorème de Fermat.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% First variant (Fermat)
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Avec le petit théorème de Fermat} Si $p$ est premier, le petit théorème de Fermat implique %
+%
+\begin{equation}
+  n^{p-1} \equiv 1 \pmod{p}
+\end{equation}
+%
+pour tout entier $n \nequiv 0 \pmod{p}$. Donc, comme $17$ est premier, 
+%
+\begin{equation}
+  12^{16} \equiv 1 \pmod{17}
+\end{equation}
+%
+en application de ce théorème. Sachant que $1729 = q \times 16 + 1$ ($q=108$), nous obtenons 
+%
+\begin{align}
+  12^{1729} &= (12^{16})^q \times 12^1 \\
+  &\equiv 1^{q} \cdot 12 \pmod{17} \\
+  &\equiv 12 \pmod{17}; 
+\end{align}
+%
+ce qui termine cette première démonstration.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Second variant: rapid exp
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Par une exponentiation rapide} Dans ce qui suit, le carré modulo $17$ exprimé dans une ligne est repris par la %
+ligne suivante:
+%
+\begin{align}
+  12^2 &= 144 \equiv 8 \pmod{17}, \\
+  12^4 &\equiv 8^2  = 64 \equiv 13 \pmod{17},  \\
+  12^8 &\equiv 13^2 = 169 \equiv \minus 1 \pmod{17}, \\
+  &\hspace{0.25em}\vdots\nonumber
+\end{align}
+%
+Sachant que $1729 = (2\times q) \times 8 + 1$ ($q=108$), nous obtenons 
+%
+\begin{align}
+  12^{1729} &= (12^8)^{2\times q}  \times 12^1 \\
+  &= (-1)^{2\times q}  \times 12^1 \\
+  &\equiv 12 \pmod{17}.
+\end{align}
+%
+La deuxième démonstration est ainsi achevée. 
+\end{proof}

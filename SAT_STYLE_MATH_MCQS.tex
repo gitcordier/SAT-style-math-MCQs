@@ -13,6 +13,7 @@ amsthm,
 mathtools
 }
 \usepackage{nicematrix}
+\usepackage{listings}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{caption}
@@ -276,15 +277,27 @@ The current document and all Python sourcecodes are available on Github:
 %\clearpage
 %\printglossary
 \renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\roman{subsection}}
- 
+\renewcommand{\thesubsection}{\roman{subsection}} 
 \renewcommand{\thesection}{Exercice \arabic{section}} 
+
 \mainmatter
-
-
 \input{\ROOT/mainmatter.tex} 
 
 \backmatter
+\chapter{Annexe}
+
+\newcounter{annex_chapter}
+\newcounter{annex_section}
+
+\setcounter{annex_chapter}{1}
+\setcounter{annex_section}{1}
+\setcounter{equation}{0}
+
+\renewcommand{\thechapter}{\Alph{annex_chapter}} 
+\renewcommand{\thesection}{\thechapter.\arabic{annex_section}} 
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+%
+\input{\ROOT/FR/annex/annex.tex}
 
 \end{document}
 % Made on \XeTeX

@@ -1,0 +1,157 @@
+\noindent%
+Comme annoncé en [\ref{1.29}], nous donnons deux calculs supplémentaires de
+%
+\begin{equation*}
+  \Biggl(\Bigl(\bigl(1729^{1729} \bmod{17}\bigr)^{1729} \Bigr)^{1729} \bmod{17}\Biggr)^{\mathbf{\dots}} 
+\end{equation*}
+%
+en prouvant la congruence
+%
+\begin{equation*}
+  12^{17} \equiv 12 \pmod{17}.
+\end{equation*}
+%
+Pour cela, nous exploitons la relation 
+%
+\begin{equation}
+  1729 = 1^3 + 12^3.
+\end{equation} 
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Third variant: Freshman's dream
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{proof}%
+%\paragraph{} does not work. TODO:?
+\textbf{À partir de l'égalité $1729 = 12^3 + 1^3$, par l'étude d'un polynôme unitaire de degré $3$.} 
+\\
+Commençons par remarquer que %
+$12^3 + 1= 1729\equiv 12\pmod{17}$ implique 
+%
+\begin{equation}
+  (12^3 + 1)^{17} \equiv 12^{17} \pmod{17}, 
+\end{equation}
+%
+car \emph{$p$ est premier}.
+Considérons alors le polynôme %
+%
+\begin{equation}
+  P(X) \Def X^3 -X + 1 \in \Z[X].
+\end{equation}
+%
+L'entier $12$ est une racine modulo $17$ de $P$. En effet, 
+%
+\begin{equation}
+  P(12) = 12^3 - 12 + 1  \equiv 0 \pmod{17} 
+\end{equation}
+%
+(ce qui établit au passage que $12^3 \equiv 11 \pmod{17}$). De surcroît, $17$ étant premier, 
+%
+\begin{equation}
+  (12^3 + 1 )^{17} \equiv (12^3)^{17} + 1^{17} \pmod{17}.
+\end{equation}
+%
+Combiné avec le fait que $(12^3 + 1)^{17} \equiv 12^{17}$, cela amène 
+%
+\begin{equation}
+  (12^3)^{17} + 1  \equiv 12^{17} \pmod{17}.
+\end{equation}
+%
+De façon équivalente, 
+%
+\begin{equation}
+  P(12^{17}) = (12^{17})^3 - 12^{17} + 1 \equiv 0 \pmod{17}.
+\end{equation}
+%
+L'entier $12^{17}$ est donc également une racine modulo $17$ de $P$. Nous montrons que c'est la seule, et, par voie de %
+conséquence, que 
+%
+\begin{equation}
+  12^{17} \equiv 12 \pmod{17}. 
+\end{equation}
+%
+Comme 
+%
+\begin{align}
+  P(n) &= n^3 - n  + 1 \\
+  &= n \cdot (n^2 - 1) + 1 \\
+  &= n \cdot (n-1) \cdot (n+1) +1  
+\end{align}
+%
+pour tout entier $n$, résoudre la congruence 
+%
+\begin{equation}
+  P(n) \equiv 0 \pmod{17} 
+\end{equation}
+%
+revient à résoudre 
+%
+\begin{equation}
+  (n-1) \cdot n \cdot (n+1) \equiv -1 \pmod{17}.
+\end{equation}
+%
+Seuls les $n \equiv 12 \pmod{17}$ satisfont cette relation, ce que montre une vérification exhaustive (hors cas triviaux)
+%
+\begin{align}
+  \text{\texttt{(1*2*3 + 1) \% 17 }}&\text{\texttt{== 0    \# False}}\\
+  &\hspace{0.14em}\vdots \nonumber\\
+  \text{\texttt{(14*15*16 + 1) \% 17 }}&\text{\texttt{== 0    \# False.}}
+\end{align}
+%
+L'entier $12$ étant l'unique racine modulo %
+$17$ de $P$, nous avons bien établi que $12^{17} \equiv 12 \pmod{17}$. Utilisant cette congruence avec 
+%
+\begin{align}
+  1729 &= 1717 + 12 \\
+  &= 17 \times 101  + 12 \\
+  &= 17 \times (5 \times 17 + 16) + 12 \\
+  &= 17^2 \times 5 + 17 \times 16 + 12 
+\end{align}
+%
+nous obtenons 
+%
+\begin{align}
+  12^{1729} &= ((12^{17})^{17})^5 \times (12^{17})^{16} \times 12^{12} \\
+  &\equiv 12^5 \times 12^{16} \times 12^{12} \\
+  &\equiv 12^{5+12} \times 12^{16} \\
+  &\equiv 12^1 \times 12^{16} \\
+  &\equiv 12 \pmod{17},
+\end{align}
+%
+ce qui termine cette troisième démonstration.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Fourth variant: Freshman's dream, with the delta
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Variante: toujours à partir de l'égalité $1729 = 12^3 + 1^3$ mais avec la recherche d'un résidu quadratique} %
+Cette preuve ne diffère de la précédente que dans la manière d'établir que $12$ est la seule racine modulo $17$ de $P$. Ici, %
+nous cherchons un polynôme 
+%
+\begin{equation}
+  Q(X)=X^2+ b X+ c \in \Z[X]
+\end{equation}
+%
+vérifiant
+%
+\begin{equation}
+  P(n) \equiv  (n-12)\cdot Q(n) \pmod{17} \qquad (n \in \Z).
+\end{equation}
+%
+Le développement $P(n) \equiv  n^3 + b n^2 + c n - 12 n^2 - 12 bn - 12 c \pmod{17}$ donne %
+$b\equiv 12 \pmod{17}$ et $c \equiv 7 \pmod{17}$. Déterminons l'ensemble des racines modulo $17$ de  
+%
+\begin{align}
+  Q(X) &\Def  X^2 + 2\cdot 6 \cdot X + 7 \\
+  &= (X + 6)^2 - 29 \\
+  &\equiv (X + 6)^2 - 12 \pmod{17}.
+\end{align}
+%
+De façon équivalente, il s'agit de résoudre la congruence
+%
+\begin{equation}
+  Q(X) \equiv (X + 6)^2 - r^2 \qquad (r^2 \equiv 12 \pmod{17})
+\end{equation}
+%
+avec $0\leq r < 17$. À cette fin nous calculons modulo les résidus $k^2$\;\,($0 \leq k < 17)$ et constatons que $12$ n'en %
+est pas un (les résidus calculés sont $0, 1, 2, 4, 8, 9, 13, 15, 16$). Ainsi, $12$ n'est pas un \emph{résidu quadratique} %
+modulo $17$, et $Q$ n'a donc pas de racine modulo $17$.
+\end{proof}

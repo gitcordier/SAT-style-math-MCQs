@@ -9,7 +9,8 @@
 % indent est spaces (2)
 % width est 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Considérons deux nombres $a \leq b$ dont le produit vaut $255$. Sachant que $\magnitude*{a-b}=2$, que vaut le doublet $(a, b)$?
+Considérons deux entiers naturels $a \leq b$ dont le produit vaut $255$. Sachant que $\magnitude*{a-b}=2$, que vaut le doublet 
+$(a, b)$?
 %
 \begin{enumerate}
   \item $(15,25)$
@@ -28,16 +29,15 @@ Le chiffre des unités de $255$ étant $5$, $255$ est divisible par $5$. On peut
 %
 \begin{enumerate}
   \item $(15,25)$ est exclu (car $\magnitude*{15 - 25} \neq 2$),
-  \item $(19,23)$ est exclu (car $ 5 \nmid 19 \times 23$. De plus, $\magnitude*{19- 23} \neq 2$),
-  \item $(25,23)$ est exclu (car $25 > 23$),
-  \item $(13,15)$ est \textsl{a priori} possible
+  \item $(19,23)$ est exclu (car $ 5 \nmid 19 \times 23$, $\magnitude*{19- 23} \neq 2$),
+  \item $(2,25)$ est exclu (car $23 \times 25 > 20^2 = 400$) 
+  \item $(13,15)$ est exclu (car $13 \times 15 < 15^2 = 225$)
   \item $(15,17)$ est \textsl{a priori} possible 
   \item $(15,15)$ est exclu (car $\magnitude*{15 - 15} \neq 2$),
   \item $(17,19)$ est exclu (car $5 \nmid 17 \times 19$),
   \item $(17,15)$ est exclu (car $17 > 15$).
 \end{enumerate}
 %
-La réponse \textbf{D} n'est pas la bonne car $13 \times 15 < 15^2 = 225$. Ne reste que \textbf{E}. Bien souvent dans les 
-QCM, il s'agit moins de trouver la bonne réponse que d'\emph{exclure toutes les mauvaises}. On pouvait aussi se souvenir dès %
-le départ que $255= 2^8 - 1 = (2^4-1)\times (2^4+1)= 15 \times 17$\;\,!
+Ne reste que \textbf{E}. Bien souvent dans les QCM, il s'agit moins de trouver la bonne réponse que d'\emph{exclure toutes %
+les mauvaises}. On pouvait aussi se souvenir dès le départ que $255= 2^8 - 1 = (2^4-1)\times (2^4+1)= 15 \times 17$\;\,!
 \end{proof}

@@ -1,0 +1,72 @@
+Pour $p$ premier, la \emph{valuation p-adique} de $n!$ est définie comme étant le plus grand entier $k$ tel que $p^k \mid n!$. 
+On la note $v_p(n!)$\,. De façon équivalente, $v_p(n!)$ est l'exposant de $p$ dans la décomposition de $n!$ en %
+facteurs premiers: 
+%
+\begin{equation}
+  n! = 2^{v_2(n!)} \times 3^{v_3(n!)} \times 5^{v_5(n!)} \times 7^{v_7(n!)} \times \cdots\,.
+\end{equation}
+%
+L'entier $v_p(n!)$ se calcule au moyen de la formule suivante, dite \emph{de Legendre},
+%
+\begin{equation}
+  v_p(n!) = \floor[\bigg]{\frac{n}{p}} 
+  + \floor[\bigg]{\frac{n}{p^2}}
+  + \floor[\bigg]{\frac{n}{p^3}}
+  + \cdots 
+  + \floor[\bigg]{\frac{n}{p^k}}
+  + \cdots \qquad (\naturals{n}).
+\end{equation}
+%
+Dans [l'\ref{1.6}], la puissance de $2$ recherchée est donc $2^{v_2(100!)}=97$. En effet, l'application de cette formule à %
+$n=100$ donne %
+%
+\begin{align}
+  v_2(100!)&= \floor[\bigg]{\frac{100}{2}}
+  + \floor[\bigg]{\frac{100}{4}}
+  + \floor[\bigg]{\frac{100}{8}} 
+  + \floor[\bigg]{\frac{100}{16}} 
+  + \floor[\bigg]{\frac{100}{32}}
+  + \floor[\bigg]{\frac{100}{64}}\\
+  &= 50 + 25 + 12 + 6 + 3 + 1 \\
+  &= 97, 
+\end{align}
+%
+qui est la réponse annoncée.
+
+La solution de [l'\ref{1.5}] peut également être trouvée à l'aide de cette formule. Toujours en notant $P$ le produit %
+$3 \times 5 \times 7 \times \cdots \times 97 \times 99$, remarquons que
+%
+\begin{align}
+P &= \frac{
+    1 \times 2 \times 3 \times 4 \times \cdots \times 99 \times 100%
+    }{(2 \times 1) \times (2\times 2) \times (2 \times 3) \times \cdots \times (2 \times 50)%
+  } \\
+&=\frac{100!}{2^{50} \times 50!}\, .
+\end{align}
+%
+$7^N$ étant premier avec $2^{50}$, il suit du lemme d'Euclide que $7^N$ divise $2^{50} \times P = \frac{100!}{50!}$ %
+si et seulement s'il divise $P$. L'entier $N$ est donc l'entier $E_7$ vérifiant 
+%
+\begin{align}
+  2^{50} \times P &= 2^{50} \times 3^{E_3} \times 5^{E_5} \times 7^{E_7} \times \cdots \\
+  &= \frac{
+    2^{v_2(100!)} \times 3^{v_3(100!)} \times 5^{v_5(100!)} \times 7^{v_7(100!)} \times \cdots
+    }{
+      2^{v_2(50!)} \times 3^{v_3(50!)} \times 5^{v_5(50!)} \times 7^{v_7(50!)} \times \cdots
+    }\\
+  &=\frac{100!}{50!}.
+\end{align}
+%
+L'identification $E_7 = v_7(100!) - v_7(50!)$ donne alors 
+%
+\begin{align}
+  N&= v_7(100!) - v_7(50!) \\
+  &= \floor[\bigg]{\frac{100}{7}}
+  + \floor[\bigg]{\frac{100}{49}}
+  - \floor[\bigg]{\frac{50}{7}} 
+  - \floor[\bigg]{\frac{50}{49}} \\
+  &= 14 + 2 - 7 - 1 \\
+  &= 8, 
+\end{align}
+ce qui est bien le résultat établi en [\ref{1.5}].
+%

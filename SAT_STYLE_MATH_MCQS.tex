@@ -12,12 +12,12 @@ mathrsfs,
 amsthm, 
 mathtools
 }
-\usepackage{nicematrix}
-\usepackage{listings}
-\usepackage{enumitem}
+\usepackage{nicematrix} 
+\usepackage{enumitem} 
 \usepackage{float}
 \usepackage{caption}
 \captionsetup{labelsep=period}
+\usepackage{parskip} % for noindent global
 \usepackage{diagbox} % For diagonal cells
 
 \usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
@@ -201,7 +201,8 @@ mathtools
 % % Norms
 \def\hspaceNorm{\hspace{0.12 em}}
 
-% % Alternative to \abs
+% % Usual functions and operator
+% % % Alternative to \abs
 \NewDocumentCommand{\magnitude}{s o m}{%
   \IfBooleanTF{#1}{%
     % Star version: auto-sizing with \left\right
@@ -216,6 +217,44 @@ mathtools
         #2\lvert \hspaceNorm #3 \hspaceNorm #2\rvert
     }{% elif no [size]
       \errmessage{magnitude: Size command required.}
+    }
+  }
+}
+
+% % % ceil
+\NewDocumentCommand{\ceil}{s o m}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{
+      \errmessage{ceil: Star mode. Don't specify the [size].}
+    }{
+      \lceil \hspaceNorm #3 \hspaceNorm \rceil
+    }
+  % Non-star version: manual sizing
+  }{
+    \IfValueTF{#2}{% if [size] 
+      #2\lceil \hspaceNorm #3 \hspaceNorm #2\rceil
+    }{% elif no [size]
+      \errmessage{ceil: Size command required.}
+    }
+  }
+}
+
+% % % floor
+\NewDocumentCommand{\floor}{s o m}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{
+      \errmessage{floor: Star mode. Don't specify the [size].}
+    }{
+      \lfloor \hspaceNorm #3 \hspaceNorm \rfloor
+    }
+  % Non-star version: manual sizing
+  }{
+    \IfValueTF{#2}{% if [size] 
+      #2\lfloor \hspaceNorm #3 \hspaceNorm #2\rfloor
+    }{% elif no [size]
+      \errmessage{floor: Size command required.}
     }
   }
 }

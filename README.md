@@ -44,7 +44,7 @@ Where possible, multiple proofs are given. The companion Python programs verify 
 | 11       | Divisibility, elimination | ab = 255,\|a − b\| = 2: solved by progressive elimination of wrong answers           |
 | 12       | Consecutive integers      | Product and mean constraints on three consecutive integers                            |
 | 13       | Angles                    | Angle between clock hands at 12h05: relative angular velocity                         |
-| 29       | Fermat's Little Theorem   | ((1729**1729 mod 17)**1729 mod 17)… , proved four ways (see below)      |
+| 29       | Fermat's Little Theorem   | ((1729**1729 mod 17)**1729 mod 17)… , proved four ways (see below)                   |
 
 Exercise 29 (Taxicab) appears in Chapter 1 because it is purely arithmetic in nature.
 
@@ -107,4 +107,4 @@ SAT-style-math-MCQs/
 
 ## License
 
-[CC0](LICENSE) — public domain. No attribution required.
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).

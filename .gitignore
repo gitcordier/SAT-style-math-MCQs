@@ -325,5 +325,8 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
+# Python
+*pyc 
+
 # Misc
 *.DS_Store

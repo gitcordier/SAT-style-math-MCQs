@@ -1,0 +1,71 @@
+%
+Un loueur de voitures (L) propose des locations journalières à $50$\,\currency, augmentées de $10$ centimes par kilomètre %
+parcouru. Son concurrent (C) propose $510$\,\currency\,par semaine, avec une remise de $10$ centimes par km parcouru si la %
+distance hebdomadaire totale est inférieure ou égale à $1\,500$\,km. Sophie, qui a besoin d'une voiture pendant exactement %
+une semaine, trouve l'offre de C plus avantageuse. La distance quotidienne moyenne qu'elle compte effectuer est nécessairement
+%
+\begin{enumerate}
+  \item $> 100$ km.
+  \item dans $\openClosedInterval*{800}{1500}\cup\openInterval*{1600}{\infty}$ (en km).
+  \item $> 800$ km.
+  \item $> 230$ km.
+  \item dans l'intervalle $\openInterval*{114}{215}$ (en km).
+\end{enumerate}
+%
+\begin{proof}
+Notons $x$ la distance que Sophie compte parcourir avec la voiture. La facturation hebdomadaire ($y_L$) du premier loueur L %
+est alors, en \currency:  
+%
+\begin{equation}
+ y_L = 7 \times 50 + \frac{10}{100}x  = 350 + \frac{x}{10}. 
+\end{equation}
+%
+Supposons que Sophie compte effectuer au plus $1500$ km hebdomadaires: dans ce cas, s'engager auprès du concurrent C a un %
+coût de 
+%
+\begin{equation}
+  y_C = 510 - \frac{x}{10}. 
+\end{equation}
+%
+Pour Sophie, C est moins cher, ce que nous exprimons algébriquement: 
+%
+\begin{equation}
+  y_C < y_L.
+\end{equation}
+%
+Numériquement parlant, cela signifie que
+%
+\begin{equation}
+  510 - \frac{x}{10} < 350 + \frac{x}{10}, 
+\end{equation}
+%
+soit 
+%
+\begin{equation}
+  x > 800.
+\end{equation}
+%
+Supposons que Sophie compte effectuer plus de $1500$ km: dans ce cas, C facturera $510$ euros, tout en restant moins cher que %
+L. D'où,
+%
+\begin{equation}
+  510 < 350 + \frac{x}{10} \iff 1600 < x.
+\end{equation}
+%
+Nous en déduisons pour $x$ les bornes suivantes:
+%
+\begin{equation}
+  800 < x \leq 1500 \quad\text{ou}\quad x > 1600
+\end{equation}
+%
+Reste à diviser par $7$ pour obtenir la moyenne journalière $x_{\text{moy}} = x/7$. Attention! Ne pas cocher \textbf{B}: %
+c'est la distance \emph{rapportée à la journée} qui est demandée. Ainsi, 
+%
+\begin{equation}
+  800/7 < x_{\text{moy}} \leq 1500/7 \quad\text{ou}\quad  x_{\text{moy}} > 1600/7
+\end{equation}
+%
+Cette moyenne $x_{\text{moy}}$ peut être proche de $800/7 \simeq 114{,}3$, ce qui élimine les options \textbf{C} et \textbf{D}. 
+De plus, $x_{\text{moy}}$ n'est pas plafonnée \emph{a priori}: on rejette \textbf{E}. Seule la réponse \textbf{A} convient. %
+Réponse \textbf{A}.
+\end{proof}

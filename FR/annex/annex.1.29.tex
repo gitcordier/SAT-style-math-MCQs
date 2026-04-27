@@ -2,7 +2,7 @@
 Comme annoncé en [\ref{1.29}], nous donnons deux calculs supplémentaires de
 %
 \begin{equation*}
-  \Biggl(\Bigl(\bigl(1729^{1729} \bmod{17}\bigr)^{1729} \Bigr)^{1729} \bmod{17}\Biggr)^{\mathbf{\dots}} 
+  \Biggl(\Bigl(\bigl(1729^{1729} \bmod{17}\bigr)^{1729} \bmod{17}\Bigr)^{1729} \bmod{17}\Biggr) \cdots
 \end{equation*}
 %
 en prouvant la congruence
@@ -89,7 +89,7 @@ revient à résoudre
   (n-1) \cdot n \cdot (n+1) \equiv -1 \pmod{17}.
 \end{equation}
 %
-Seuls les $n \equiv 12 \pmod{17}$ satisfont cette relation, ce que montre une vérification exhaustive (hors cas triviaux)
+Seuls les $n \equiv 12 \pmod{17}$ satisfont cette relation, ce que montre une vérification excluant les cas triviaux
 %
 \begin{align}
   \text{\texttt{(1*2*3 + 1) \% 17 }}&\text{\texttt{== 0    \# False}}\\
@@ -97,14 +97,14 @@ Seuls les $n \equiv 12 \pmod{17}$ satisfont cette relation, ce que montre une v�
   \text{\texttt{(14*15*16 + 1) \% 17 }}&\text{\texttt{== 0    \# False.}}
 \end{align}
 %
-L'entier $12$ étant l'unique racine modulo %
-$17$ de $P$, nous avons bien établi que $12^{17} \equiv 12 \pmod{17}$. Utilisant cette congruence avec 
+L'entier $12$ étant l'unique racine modulo $17$ de $P$, nous avons bien établi que $12^{17} \equiv 12 \pmod{17}$. Utilisant %
+cette congruence avec 
 %
 \begin{align}
   1729 &= 1717 + 12 \\
   &= 17 \times 101  + 12 \\
   &= 17 \times (5 \times 17 + 16) + 12 \\
-  &= 17^2 \times 5 + 17 \times 16 + 12 
+  &= 17^2 \times 5 + 17 \times 16 + 12, 
 \end{align}
 %
 nous obtenons 
@@ -137,21 +137,23 @@ vérifiant
 \end{equation}
 %
 Le développement $P(n) \equiv  n^3 + b n^2 + c n - 12 n^2 - 12 bn - 12 c \pmod{17}$ donne %
-$b\equiv 12 \pmod{17}$ et $c \equiv 7 \pmod{17}$. Déterminons l'ensemble des racines modulo $17$ de  
+$b\equiv 12 \pmod{17}$ et $c \equiv 7 \pmod{17}$. Déterminons l'ensemble des racines modulo $17$ de $Q$, c'est-à-dire tout %
+entier relatif $n$ vérifiant%
 %
 \begin{align}
-  Q(X) &\Def  X^2 + 2\cdot 6 \cdot X + 7 \\
-  &= (X + 6)^2 - 29 \\
-  &\equiv (X + 6)^2 - 12 \pmod{17}.
+  Q(n) &\Def  n^2 + 2\cdot 6 \cdot n + 7 \\
+  &= (n + 6)^2 - 29 \\
+  &\equiv (n + 6)^2 - 12 \pmod{17}.
 \end{align}
 %
 De façon équivalente, il s'agit de résoudre la congruence
 %
 \begin{equation}
-  Q(X) \equiv (X + 6)^2 - r^2 \qquad (r^2 \equiv 12 \pmod{17})
+  Q(n) \equiv (n + 6)^2 - r^2 \qquad (r^2 \equiv 12 \pmod{17})
 \end{equation}
 %
-avec $0\leq r < 17$. À cette fin nous calculons modulo les résidus $k^2$\;\,($0 \leq k < 17)$ et constatons que $12$ n'en %
-est pas un (les résidus calculés sont $0, 1, 2, 4, 8, 9, 13, 15, 16$). Ainsi, $12$ n'est pas un \emph{résidu quadratique} %
-modulo $17$, et $Q$ n'a donc pas de racine modulo $17$.
+avec $0\leq r < 17$. À cette fin nous calculons modulo $17$ les résidus $k^2$\;\,($0 \leq k < 17)$ et constatons que $12$ %
+n'en est pas un (les résidus calculés sont $0, 1, 2, 4, 8, 9, 13, 15, 16$). Ainsi, $12$ n'est pas un \emph{résidu quadratique} 
+modulo $17$, et $Q$ n'a donc pas de racine modulo $17$. En conclusion, l'entier $12$ est la seule racine modulo $17$ de $P$, %
+ce qui achève la démonstration.
 \end{proof}

@@ -1,0 +1,49 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% SAT_STYLE_MATH_MCQS_FR.tex
+% 2_02.tex
+%
+% encoding: UTF-8
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Alice et Bernard jouent à pile ou face. Si pile, Alice reçoit $1$\,\currency\,de Bernard ;
+sinon elle lui en doit un. Après (exactement) $10$ parties, Bernard a gagné $2$\,\currency. %
+Le taux de succès d'Alice est de
+%
+\begin{enumerate}
+  \item $60\%$
+  \item $80\%$
+  \item $90\%$
+  \item $20\%$
+  \item $40\%$.
+\end{enumerate}
+%
+%
+\begin{proof}%
+Soient $N_A$ (respectivement $N_B$) les nombres de victoires d'Alice (respectivement Bernard). %
+D'où 
+%
+\begin{equation}
+  \begin{cases}
+    N_A + N_B = 10, \\
+    N_B - N_A = 2.
+  \end{cases}
+\end{equation}
+%
+Ainsi, %
+%
+\begin{equation}
+  2N_A = N_A  + N_B - (N_B - N_A) = 10 -2 = 8, \textit{i.e., } N_A = 4.
+\end{equation}
+% 
+Le taux de succès d'Alice est donc de 
+%
+\begin{equation}
+  \frac{N_A}{N_A+ N_B} = \frac{4}{10} = 40\%.
+\end{equation}
+%
+Réponse \textbf{E}.
+\end{proof}
